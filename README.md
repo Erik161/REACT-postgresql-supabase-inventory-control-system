@@ -1,12 +1,33 @@
-# React + Vite
+# 📦 Sistema de Control de Inventarios
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto implementa un completo **Sistema de Control de Inventarios** en el navegador, combinando un frontend moderno en React con un backend gestionado por Supabase y PostgreSQL.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías y cómo se usan
 
-## Expanding the ESLint configuration
+- ⚛️ **React**  
+  Construye la interfaz de usuario, componentes reutilizables y controla el flujo de datos.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 📡 **TanStack Query**  
+  Maneja las peticiones al servidor (fetching, caching y sincronización de datos).
+
+- 📋 **TanStack Table**  
+  Presenta tablas dinámicas y personalizables para listar productos e inventarios.
+
+- 🐻 **Zustand**  
+  Estado global ligero para compartir datos entre componentes sin prop-drilling.
+
+- 🎨 **Styled-Components**  
+  Aplica estilos CSS en JS para componentes con theming y scoped styles.
+
+- 📄 **React-PDF**  
+  Genera reportes en PDF directamente desde el frontend (descarga de inventarios).
+
+- 🔗 **Supabase**  
+  - **Auth** 🔐: Autenticación de usuarios (registro, login).  
+  - **Database** 🐘: Base de datos PostgreSQL administrada.  
+  - **Triggers & Functions** 🔫: Lógica de negocio y validaciones a nivel de BD.  
+  - **SQL Console** 💻: Herramienta para consultas y diagramas de tablas.
+
+---
