@@ -18,7 +18,7 @@ Este proyecto implementa un completo **Sistema de Control de Inventarios** en el
 - 🐻 **Zustand**  
   Estado global ligero para compartir datos entre componentes sin prop-drilling.
 
-- 🎨 **Styled-Components**  
+- 💅 **Styled-Components**  
   Aplica estilos CSS en JS para componentes con theming y scoped styles.
 
 - 📄 **React-PDF**  
