@@ -5,6 +5,7 @@
 
 export * from './App'
 export * from './context/AuthContext'
+export * from './index'
 export * from './main'
 export * from './styles/breackpoints'
 export * from './styles/themes'
