@@ -1,10 +1,10 @@
-import {Children, createContext,useContext, useEffect, useState} from "react";
+import {createContext,useContext, useEffect, useState} from "react";
 
 import {supabase} from "../index"
 
 const AuthContext = createContext();
 
-export const AuthContextProvider = createContext=({children})=>{
+export const AuthContextProvider =({children})=>{
     const [user, setUser]= useState([]);
     useEffect(()=>{
         const {data:authListener} = supabase.auth.
