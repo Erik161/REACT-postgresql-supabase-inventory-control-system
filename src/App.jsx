@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <AuthContextProvider>
-        
+        <span>Hola desde context</span>
       </AuthContextProvider>
     </>
   )
