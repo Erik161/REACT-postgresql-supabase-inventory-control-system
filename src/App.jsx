@@ -1,19 +1,29 @@
 import styled, { ThemeProvider } from "styled-components";
 import {AuthContextProvider, MyRoutes, Light, Dark} from "./index"
 import { createContext, useState } from 'react'
+import {Device} from "./styles/breackpoints"
 export const ThemeContext = createContext(null);
 
 function App() {
   const [themeuse, setTheme] = useState("dark");
   const theme = themeuse==="light" ? "light" : "dark";
   const themeStyle = theme==="light" ? Light : Dark;
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <>
       <ThemeContext.Provider value={{theme, setTheme}}>
         <ThemeProvider theme={themeStyle}>
           <AuthContextProvider>
-            <Container>
+            <Container className={sidebarOpen ? "active" :""}>
+              <section className="ContentSidebar">
+                
+              </section>
+              <section className="ContentMenuambur">
+              </section>
+              <section className="ContentRoutes">
+
+              </section>
               <MyRoutes/>
             </Container>
           </AuthContextProvider>
@@ -23,10 +33,45 @@ function App() {
   )
 }
 
-const Container = styled.div`
+const Container = styled.main`
   display:grid;
   grid-template-columns:1fr;
   background-color:${({theme})=>theme.bgtotal};
+
+  .ContentSidebar{
+    display:none;
+  }
+  .ContentMenuambur{
+    display:block;
+    position:absolute;
+    left:20px;
+  }
+
+  @media ${Device.tablet}{
+    grid-template-columns:65px 1fr;
+    &.active{
+      grid-template-columns:220px 1fr;
+    }
+    .ContentSidebar{
+      display:initial;
+    }
+    
+    .ContentMenuambur{
+      display:none;
+    }
+
+  }
+
+  .ContentRoutes{
+    grid-column:1;
+    width:100%;
+    @media ${Device.tablet}{
+      grid-column:2;
+    }
+
+
+  }
+
   
 `;
 
