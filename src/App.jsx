@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import {AuthContextProvider, MyRoutes, Light, Dark} from "./index"
 import { createContext, useState } from 'react'
 export const ThemeContext = createContext(null);
@@ -13,7 +13,9 @@ function App() {
       <ThemeContext.Provider value={{theme, setTheme}}>
         <ThemeProvider theme={themeStyle}>
           <AuthContextProvider>
-            <MyRoutes/>
+            <Container>
+              <MyRoutes/>
+            </Container>
           </AuthContextProvider>
         </ThemeProvider>
       </ThemeContext.Provider>
@@ -24,7 +26,7 @@ function App() {
 const Container = styled.div`
   display:grid;
   grid-template-columns:1fr;
-  background-color:${(props)=>props.theme.bgtotal};
+  background-color:${({theme})=>theme.bgtotal};
   
 `;
 
