@@ -20,6 +20,7 @@ function App() {
                 <Sidebar state={sidebarOpen} setState={()=>setSidebarOpen(!sidebarOpen)} />
               </section>
               <section className="ContentMenuambur">
+                <MenuHambur/>
               </section>
               <section className="ContentRoutes">
 
