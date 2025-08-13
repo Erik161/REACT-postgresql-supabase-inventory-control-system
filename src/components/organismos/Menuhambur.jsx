@@ -10,7 +10,7 @@ export function MenuHambur() {
   </Container>);
 }
 const Container =styled.div`
-  background-color: ${({props})=>props.theme.body};
+  background-color: ${(props)=>props.theme.body};
 `
 
 const NavBar =styled.nav`
