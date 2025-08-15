@@ -3,7 +3,9 @@ export function MenuHambur() {
   return (<Container>
 <NavBar>
     <section>
-        
+        <HamburguerMenu>
+          
+        </HamburguerMenu>
     </section>
 
 </NavBar>
@@ -18,4 +20,13 @@ const NavBar =styled.nav`
   justify-content: space-between;
   align-items: center;
   height:100vh;
+`
+
+const HamburguerMenu =styled.span`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 20px;
+  height: 20px;
 `
