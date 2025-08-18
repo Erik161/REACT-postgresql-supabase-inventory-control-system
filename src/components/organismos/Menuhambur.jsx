@@ -27,7 +27,7 @@ export function MenuHambur() {
               className="Links"
             >
               <div className="Linkicon">{icon}</div>
-              <span>{label}</span>
+              <span>{label} </span>
               
             </NavLink>
           </div>
