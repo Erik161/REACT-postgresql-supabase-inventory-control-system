@@ -17,27 +17,17 @@ export function MenuHambur() {
     </section>
 
     <Main>
-      <span className="Sidebarbutton" onClick={() => setState(!state)}>
-        {<v.iconoflechaderecha />}
-      </span>
-      
-        <div className="Logocontent">
-          <div className="imgcontent">
-            <img src={v.logo} />
-          </div>
-          <h2>StockPRO</h2>
-        </div>
         {LinksArray.map(({ icon, label, to }) => (
           <div
-            className={state ? "LinkContainer active" : "LinkContainer"}
+            className="LinkContainer"
             key={label}
           >
             <NavLink
               to={to}
-              className={({ isActive }) => `Links${isActive ? ` active` : ``}`}
+              className="Links"
             >
               <div className="Linkicon">{icon}</div>
-              
+              <span>{label}</span>
               
             </NavLink>
           </div>
@@ -45,18 +35,15 @@ export function MenuHambur() {
         <Divider />
         {SecondarylinksArray.map(({ icon, label, to }) => (
           <div
-            className={state ? "LinkContainer active" : "LinkContainer"}
+            className="LinkContainer"
             key={label}
           >
             <NavLink
               to={to}
-              className={({ isActive }) => `Links${isActive ? ` active` : ``}`}
+              className="Links"
             >
               <div className="Linkicon">{icon}</div>
-              <span className={state ? "label_ver" : "label_oculto"}>
-                {label}
-              </span>
-             
+              <span>{label}</span>
             </NavLink>
           </div>
         ))}
