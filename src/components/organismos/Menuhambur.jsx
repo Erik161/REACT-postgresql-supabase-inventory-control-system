@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import {LinksArray,SecondarylinksArray, ToggleTema} from "../../index";
+import { NavLink } from "react-router-dom";
+import { v } from "../../styles/variables";
 export function MenuHambur() {
   return (<Container>
 <NavBar>
@@ -13,6 +16,55 @@ export function MenuHambur() {
         </HamburguerMenu>
     </section>
 
+    <Main>
+      <span className="Sidebarbutton" onClick={() => setState(!state)}>
+        {<v.iconoflechaderecha />}
+      </span>
+      
+        <div className="Logocontent">
+          <div className="imgcontent">
+            <img src={v.logo} />
+          </div>
+          <h2>StockPRO</h2>
+        </div>
+        {LinksArray.map(({ icon, label, to }) => (
+          <div
+            className={state ? "LinkContainer active" : "LinkContainer"}
+            key={label}
+          >
+            <NavLink
+              to={to}
+              className={({ isActive }) => `Links${isActive ? ` active` : ``}`}
+            >
+              <div className="Linkicon">{icon}</div>
+              
+              
+            </NavLink>
+          </div>
+        ))}
+        <Divider />
+        {SecondarylinksArray.map(({ icon, label, to }) => (
+          <div
+            className={state ? "LinkContainer active" : "LinkContainer"}
+            key={label}
+          >
+            <NavLink
+              to={to}
+              className={({ isActive }) => `Links${isActive ? ` active` : ``}`}
+            >
+              <div className="Linkicon">{icon}</div>
+              <span className={state ? "label_ver" : "label_oculto"}>
+                {label}
+              </span>
+             
+            </NavLink>
+          </div>
+        ))}
+        <ToggleTema/>
+        <Divider />
+        
+      
+    </Main>
 </NavBar>
   </Container>);
 }
@@ -92,4 +144,33 @@ z-index:100;
   transform: rotate(180deg);
 }
 `
+
+const Main = styled.div`
+  .Sidebarbutton {
+    position: fixed;
+    top: 70px;
+    left: 42px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: ${(props) => props.theme.bgtgderecha};
+    box-shadow: 0 0 4px ${(props) => props.theme.bg3},
+      0 0 7px ${(props) => props.theme.bg};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 2;
+    transform: ${({ $isopen }) =>
+      $isopen==="true" ? `translateX(162px) rotate(3.142rad)` : `initial`};
+    color: ${(props) => props.theme.text};
+  }
+`;
+const Divider = styled.div`
+  height: 1px;
+  width: 100%;
+  background: ${(props) => props.theme.bg4};
+  margin: ${() => v.lgSpacing} 0;
+`;
 
