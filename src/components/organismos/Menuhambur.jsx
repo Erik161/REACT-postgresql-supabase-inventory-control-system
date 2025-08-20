@@ -2,7 +2,9 @@ import styled from "styled-components";
 import {LinksArray,SecondarylinksArray, ToggleTema} from "../../index";
 import { NavLink } from "react-router-dom";
 import { v } from "../../styles/variables";
+import { useState } from "react";
 export function MenuHambur() {
+  const [click, setClick] = useState(false);
   return (<Container>
 <NavBar>
     <section>
