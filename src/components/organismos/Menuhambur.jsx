@@ -81,15 +81,21 @@ z-index:100;
 
 .toggle {
   position: relative; 
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   transition-duration: .5s;
+  &.active {
+    .bars {
+      position: absolute;
+      transition-duration:0.5s;
+    }
+  }
 }
 
 .bars {
