@@ -8,9 +8,9 @@ export function MenuHambur() {
   return (<Container>
 <NavBar>
     <section>
-        <HamburguerMenu>
-          <input id="checkbox2" type="checkbox"/>
-          <label class="toggle toggle2" for="checkbox2">
+        <HamburguerMenu onClick={()=>setClick(!click)}>
+         
+          <label className={click ?"toggle active":"toggle"} for="checkbox">
             <div id="bar4" class="bars"></div>
             <div id="bar5" class="bars"></div>
             <div id="bar6" class="bars"></div>
@@ -18,9 +18,9 @@ export function MenuHambur() {
         </HamburguerMenu>
     </section>
 
-    <Main>
+    <Menu $click={click.toString()}>
         {LinksArray.map(({ icon, label, to }) => (
-          <div
+          <div onClick={()=>setClick(!click)}
             className="LinkContainer"
             key={label}
           >
@@ -39,6 +39,7 @@ export function MenuHambur() {
           <div
             className="LinkContainer"
             key={label}
+            onClick={()=>setClick(!click)}
           >
             <NavLink
               to={to}
@@ -53,7 +54,7 @@ export function MenuHambur() {
         <Divider />
         
       
-    </Main>
+    </Menu>
 </NavBar>
   </Container>);
 }
@@ -74,12 +75,12 @@ position:fixed;
 top:2rem;
 z-index:100;
 
-#checkbox2 {
+#checkbox {
   display: none;
 }
 
-.toggle2 {
-  position: relative;
+.toggle {
+  position: relative; 
   width: 25px;
   height: 25px;
   cursor: pointer;
@@ -106,55 +107,41 @@ z-index:100;
   width: 80%;
 }
 
-#checkbox2:checked + .toggle2 .bars {
+#checkbox:checked + .toggle .bars {
   position: absolute;
   transition-duration: .5s;
 }
 
-#checkbox2:checked + .toggle2 #bar5 {
+#checkbox:checked + .toggle #bar5 {
   transform: scaleX(0);
   transition-duration: .5s;
 }
 
-#checkbox2:checked + .toggle2 #bar4 {
+#checkbox:checked + .toggle #bar4 {
   width: 100%;
   transform: rotate(45deg);
   transition-duration: .5s;
 }
 
-#checkbox2:checked + .toggle2 #bar6 {
+#checkbox:checked + .toggle #bar6 {
   width: 100%;
   transform: rotate(-45deg);
   transition-duration: .5s;
 }
 
-#checkbox2:checked + .toggle2 {
+#checkbox:checked + .toggle2 {
   transition-duration: .5s;
   transform: rotate(180deg);
 }
 `
 
-const Main = styled.div`
-  .Sidebarbutton {
-    position: fixed;
-    top: 70px;
-    left: 42px;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: ${(props) => props.theme.bgtgderecha};
-    box-shadow: 0 0 4px ${(props) => props.theme.bg3},
-      0 0 7px ${(props) => props.theme.bg};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    z-index: 2;
-    transform: ${({ $isopen }) =>
-      $isopen==="true" ? `translateX(162px) rotate(3.142rad)` : `initial`};
-    color: ${(props) => props.theme.text};
-  }
+const Menu = styled.div`
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  list-style:none;
+  z-index:100;
+
 `;
 const Divider = styled.div`
   height: 1px;
