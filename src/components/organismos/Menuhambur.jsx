@@ -11,9 +11,9 @@ export function MenuHambur() {
         <HamburguerMenu onClick={()=>setClick(!click)}>
          
           <label className={click ?"toggle active":"toggle"} for="checkbox">
-            <div id="bar4" class="bars"></div>
-            <div id="bar5" class="bars"></div>
-            <div id="bar6" class="bars"></div>
+            <div id="bar1" class="bars"></div>
+            <div id="bar2" class="bars"></div>
+            <div id="bar3" class="bars"></div>
           </label>
         </HamburguerMenu>
     </section>
@@ -91,54 +91,69 @@ z-index:100;
   gap: 10px;
   transition-duration: .5s;
   &.active {
+    transition-duration: .5s;
+    transform: rotate(180deg);
     .bars {
       position: absolute;
+      transition-duration:0.5s;
+    }
+
+    #bars2{
+      transform:scaleX(0);
+      transition-duration:0.5s;
+    }
+
+    #bar1 {
+      width: 100%;
+      transform:rotate(45deg);
+      transition-duration:0.5s;
+    }
+
+    #bar3 {
+      width: 100%;
+      transform:rotate(-45deg);
       transition-duration:0.5s;
     }
   }
 }
 
-.bars {
-  width: 100%;
-  height: 6px;
-  background-color: rgb(92, 176, 255);
-  border-radius: 6px;
-}
+ .bars {
+    width: 100%;
+    height: 4px;
+    background-color:${({theme})=>theme.text};
+    border-radius: 4px;
+  }
 
-#bar5 {
-  transition-duration: .8s;
-}
+   #bar2 {
+    transition-duration: 0.8s;
+  }
 
-#bar4,#bar6 {
-  width: 80%;
-}
+  #bar1,
+  #bar3 {
+    width: 70%;
+  }
 
-#checkbox:checked + .toggle .bars {
-  position: absolute;
-  transition-duration: .5s;
-}
-
-#checkbox:checked + .toggle #bar5 {
+#checkbox:checked + .toggle #bars2 {
   transform: scaleX(0);
-  transition-duration: .5s;
+  transition-duration:0.5s;
 }
 
-#checkbox:checked + .toggle #bar4 {
-  width: 100%;
-  transform: rotate(45deg);
-  transition-duration: .5s;
+#checkbox:checked + .toggle #bar1 {
+  width:100%;
+  transform:rotate(45deg);
+  transition-duration:0.5s;
 }
 
-#checkbox:checked + .toggle #bar6 {
+#checkbox:checked + .toggle #bar3 {
   width: 100%;
   transform: rotate(-45deg);
   transition-duration: .5s;
 }
 
-#checkbox:checked + .toggle2 {
-  transition-duration: .5s;
-  transform: rotate(180deg);
+#checkbox:checked + .toggle {
+ 
 }
+
 `
 
 const Menu = styled.div`
@@ -146,7 +161,7 @@ const Menu = styled.div`
   justify-content:space-between;
   align-items:center;
   list-style:none;
-  z-index:100;
+  z-index:10;
 
 `;
 const Divider = styled.div`
