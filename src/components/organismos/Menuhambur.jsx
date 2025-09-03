@@ -79,52 +79,50 @@ z-index:100;
   display: none;
 }
 
-.toggle {
-  position: relative; 
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition-duration: .5s;
-  &.active {
-    transition-duration: .5s;
-    transform: rotate(180deg);
-    .bars {
-      position: absolute;
-      transition-duration:0.5s;
-    }
-
-    #bars2{
-      transform:scaleX(0);
-      transition-duration:0.5s;
-    }
-
-    #bar1 {
-      width: 100%;
-      transform:rotate(45deg);
-      transition-duration:0.5s;
-    }
-
-    #bar3 {
-      width: 100%;
-      transform:rotate(-45deg);
-      transition-duration:0.5s;
+ .toggle {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition-duration: 0.5s;
+    &.active {
+      transition-duration: 0.5s;
+      transform: rotate(180deg);
+      .bars {
+        
+        position: absolute;
+        transition-duration: 0.5s;
+      }
+      #bar2 {
+        transform: scaleX(0);
+        transition-duration: 0.5s;
+      }
+      #bar1 {
+        width: 100%;
+        transform: rotate(45deg);
+        transition-duration: 0.5s;
+      }
+      #bar3 {
+        width: 100%;
+        transform: rotate(-45deg);
+        transition-duration: 0.5s;
+      }
     }
   }
-}
 
- .bars {
+  .bars {
     width: 100%;
     height: 4px;
     background-color:${({theme})=>theme.text};
     border-radius: 4px;
   }
 
-   #bar2 {
+  #bar2 {
     transition-duration: 0.8s;
   }
 
@@ -132,29 +130,7 @@ z-index:100;
   #bar3 {
     width: 70%;
   }
-
-#checkbox:checked + .toggle #bars2 {
-  transform: scaleX(0);
-  transition-duration:0.5s;
-}
-
-#checkbox:checked + .toggle #bar1 {
-  width:100%;
-  transform:rotate(45deg);
-  transition-duration:0.5s;
-}
-
-#checkbox:checked + .toggle #bar3 {
-  width: 100%;
-  transform: rotate(-45deg);
-  transition-duration: .5s;
-}
-
-#checkbox:checked + .toggle {
- 
-}
-
-`
+`;
 
 const Menu = styled.div`
   display:flex;
