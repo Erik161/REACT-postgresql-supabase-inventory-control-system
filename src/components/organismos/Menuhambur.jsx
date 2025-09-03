@@ -94,7 +94,6 @@ z-index:100;
       transition-duration: 0.5s;
       transform: rotate(180deg);
       .bars {
-        
         position: absolute;
         transition-duration: 0.5s;
       }
@@ -134,11 +133,41 @@ z-index:100;
 
 const Menu = styled.div`
   display:flex;
-  justify-content:space-between;
   align-items:center;
   list-style:none;
   z-index:10;
-
+  flex-direction:column;
+  position:fixed;
+  justify-content:center;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100vw;
+  background-color:${(props)=>`rgba(${props.theme.bodyRgba},0.5)`  };
+  backdrop-filter:blur(3px);
+  transform:${(props)=>props.$click==="true" ? "translateY(0)" : "translateY(1000%)"};
+  transition:all 0.3s ease;
+  .LinkContainer{
+    &:hover{
+      background:${(props)=>props.theme.bgAlpha};
+    }
+    .Links{
+      width:100vw;
+      display:flex;
+      align-items:center;
+      text-decoration:none;
+      color:${(props)=>props.theme.text};
+      height:80px;
+      .linkicon{
+        padding: ${v.smSpacing} ${v.mdSpacing};
+        display:flex;
+        svg{
+          font-size:25px;
+        } 
+      }
+    }
+  }
 `;
 const Divider = styled.div`
   height: 1px;
