@@ -9,5 +9,12 @@ export const useAuthStore=create((set,get)=>({
         if(error){
             return null;
         }
+    },
+
+    signOut: async ()=>{
+        const {error}= await supabase.
+        auth.signOut()
+        if (error)
+        throw new Error("A ocurrido un error durante el cierre de sesión"+error)
     }
 }));
